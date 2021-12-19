@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container">
+  <div class="row">
+    {% for user in users %}
+    {% if request.user != user %}
+    <div class="card text-white bg-dark m-3" style="width: 20rem;">
+      <div class="card-body text-center ">
+        <a class="text-decoration-none" href="/profile/{{user.username}} " style="color: white;"><h6 class="card-header">
+          {{user.first_name|title}} {{user.last_name|title}}
+        </h6></a>
+        <a class="text-decoration-none" href="/profile/{{user.username}}" style="color: white;">
+          <small class="card-title">@{{user.username}}</small>
+        </a>
+        <br/>
+        <br><br><br>
+        <a href="#" class="card-link">Follow</a>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

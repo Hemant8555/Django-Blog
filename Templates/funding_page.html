@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>We are here for you??</h1>
+<h2>Onc click funding...</h2>
+<br><br>
+<div class="container">
+ <h3>Enter details given below:</h3>
+
+
+<form action="" method="POST">
+ {% csrf_token %}
+Startup Name: <input type="text" name="startup_name" placeholder="Startup name:">
+<br><br>
+ <label for="cars">On what stage you are?</label>
+ <select id="stage" name="stage">
+  <option value="Idea">Idea</option>
+  <option value="Concept">Concept</option>
+  <option value="Established">Established</option>
+ </select>
+ <br>
+  What problem are you solving?
+  <br>
+  <textarea name="startup_problem" cols="80" rows="5" placeholder="Enter problem"></textarea>
+
+  <br>
+  Solution for problem given above?
+  <br>
+  <textarea name="startup_solution" cols="80" rows="5" placeholder="Enter solution of problem"></textarea>
+  <br>
+  Are you registered as a company?
+ <input type="radio"  name="startup_registration" value="Yes">
+ <label for="male">Yes</label><br>
+ <input type="radio"  name="startup_registration" value="No">
+ <label for="female">No</label><br>
+<button type="submit">Submit</button>
+</form>
+</div>
+
+
+{% endblock content %}

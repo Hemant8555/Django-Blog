@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container">
+<div class="container">
+  <div class="form-group">
+    <form action="" method="POST">
+      {% csrf_token %}
+    <textarea class="form-control mt-2" placeholder="Post something" rows="4" name="tweet"></textarea>
+    <button type="submit">Post</button>
+  </form>
+</div>
+</div>
+
+
+  <div class="container">
+    <div class="col-sm-6">
+      {% for item in posts %}
+      <div class="card">
+        <div class="card-body">
+          <small>@ <a href="/profile/{{item.author}}">{{item.author}}</a></small>
+          <br>
+          <p class="card-text">{{ item.content }}</p>
+          <small>{{item.date_posted}}</small>
+        </div>
+        {% if item.author == request.user %}
+            <a style="text-align: right;;" href="delete/{{item.id}}">Delete Post</a>
+            {% endif %}
+          </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
